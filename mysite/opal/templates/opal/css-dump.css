@@ -1,0 +1,30 @@
+<style>
+h1#opal-logo
+{
+  padding-top: 14px;
+  padding-bottom: 16px;
+  margin: 0;
+  width: 30%;
+  height: 30%;
+  float: left;
+  display: inline;
+}
+div#nav-bar 
+{
+  width: 80%;
+  height: 30px;
+  overflow: auto;
+}
+.menu-item
+{
+  float: left;
+}
+ul
+{
+  margin: 0;
+  padding: 0;
+}
+ul#menu-items
+{
+}
+</style>

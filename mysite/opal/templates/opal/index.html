@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> OPAL website </title>
+  <!-- Bootstrap style -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
+</head>
+
+<body class="Home-Page">
+  <!-- Bootstrap scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="{% static "js/bootstrap.min.js" %}"></script>
+  <div id="wrapper">
+    <!-- ******HEADER****** -->
+    <div id="header">
+      <nav class="navbar transparent navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'opal:index' %}">
+              <img src="{% static 'images/OPAL-Logo.svg' %}" id="logo">
+            </a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="nav navbar-left navbar-nav nav-child" id="tabs">
+              <li> <a href="{% url 'opal:about' %}">About</a> </li>
+              <li> <a href="{% url 'opal:people' %}">People</a> </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown"> More <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">More Action</a></li>
+                  <li><a href="#">Shake it</a></li>
+                  <li><a href="#">Twerk it</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav navbar-right navbar-nav nav-child" id="sign-in">
+              <li class="button">
+                <button id="sign-in" type="button" class="btn btn-success navbar-btn">Sign In</button>
+              </li>
+            </ul>
+          </div>
+        </div> <!-- container-fluid -->
+      </nav>
+
+      <div class="main-slideshow">
+        <figure class="show">
+          <img alt="" src="{% static 'images/slideshow/Taipei101.jpg' %}" />
+        </figure>
+        <figure>
+          <img alt="" src="{% static 'images/slideshow/Taipei101.jpg' %}" />
+        </figure>
+        <figure>
+          <span class="prev"> « </span>
+          <span class="next"> » </span>
+        </figure>
+      </div> <!-- slideshow -->
+    </div> <!-- header div -->
+  </div> <!-- wrapper div -->
+</body>
