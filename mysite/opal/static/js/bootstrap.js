@@ -1604,13 +1604,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     var targets      = this.targets
     var activeTarget = this.activeTarget
     var i
-
     if (scrollTop >= maxScroll) {
       return activeTarget != (i = targets.last()[0]) && this.activate(i)
     }
 
     if (activeTarget && scrollTop <= offsets[0]) {
-      return activeTarget != (i = targets[0]) && this.activate(i)
+      return this.deactivate(targets[0])
     }
 
     for (i = offsets.length; i--;) {
@@ -1645,6 +1644,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     active.trigger('activate.bs.scrollspy')
   }
 
+  /* Modification by Michael Lin */
+  ScrollSpy.prototype.deactivate = function () {
+    this.activeTarget = null
+    $(this.selector)
+      .parentsUntil(this.options.target, '.active')
+      .removeClass('active')
+  }
 
   // SCROLLSPY PLUGIN DEFINITION
   // ===========================

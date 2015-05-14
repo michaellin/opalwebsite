@@ -28,7 +28,7 @@ img#logo
 /* Menu items */
 .nav li a
 {
-  font-size: 20px;
+  font-size: 18px;
   vertical-align: bottom;
 }
 
@@ -55,35 +55,43 @@ button#sign-in
 {
   position: relative;
   display: block;
-  overflow: scroll;
+  overflow: hidden;
+  max-height: 80%;
 }
 
 figure
 {
-position: absolute;
-opacity: 0;
-transition: 1s opacity;
+  position: absolute;
+  opacity: 0;
+  transition: 1s opacity;
 }
 
 figure.show
 {
-opacity: 1;
-position: static;
-transition: 1s opacity;
+  opacity: 1;
+  position: static;
+  transition: 1s opacity;
 }
 
+img
+{
+  width: 100%;
+}
+
+/*
 .next, .prev
 {
-color: #fff;
-position: absolute;
-background: rgba(0, 0, 0, 0.6);
-top: 50%;
-z-index: 1;
-font-size: 2em;
-margin-top: -0.75em;
-opacity: .3;
-user-select: none;
+  color: #fff;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  top: 50%;
+  z-index: 1;
+  font-size: 2em;
+  margin-top: -0.75em;
+  opacity: .3;
+  user-select: none;
 }
+*/
 
 .next:hover, .prev:hover
 {
@@ -91,18 +99,21 @@ user-select: none;
   opacity: 1;
 }
 
-.next
+.col
 {
-  right: 0;
-  padding: 10px 5px 15px 10px;
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  position: absolute;
+  margin-top: 78px;
+  height: 100%;
+  width: 40px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-.prev
+.right-col
+{
+  right: 0;
+}
+
+.left-col
 {
   left: 0;
-  padding: 10px 10px 15px 5px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
 }

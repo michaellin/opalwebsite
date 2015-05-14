@@ -7,44 +7,22 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-theme.min.css' %}">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">-->
 </head>
 
-<body class="Home-Page">
-  <!-- Bootstrap scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="{% static "js/bootstrap.min.js" %}"></script>
+<body data-spy="scroll" data-target="nav">
   <div id="wrapper">
     <!-- ******HEADER****** -->
     <div id="header">
       <nav class="navbar transparent navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
-
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'opal:index' %}">
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <a class="navbar-brand" href="#carousel-ss">
               <img src="{% static 'images/OPAL-Logo.svg' %}" id="logo">
             </a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="nav navbar-left navbar-nav nav-child" id="tabs">
-              <li> <a href="{% url 'opal:about' %}">About</a> </li>
-              <li> <a href="{% url 'opal:people' %}">People</a> </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown"> More <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">More Action</a></li>
-                  <li><a href="#">Shake it</a></li>
-                  <li><a href="#">Twerk it</a></li>
-                </ul>
-              </li>
+              <li> <a href="#about">About</a> </li>
+              <li> <a href="#people">People</a> </li>
+              <li> <a href="#map">Places</a> </li>
             </ul>
             <ul class="nav navbar-right navbar-nav nav-child" id="sign-in">
               <li class="button">
@@ -54,19 +32,55 @@
           </div>
         </div> <!-- container-fluid -->
       </nav>
-
-      <div class="main-slideshow">
-        <figure class="show">
-          <img alt="" src="{% static 'images/slideshow/Taipei101.jpg' %}" />
-        </figure>
-        <figure>
-          <img alt="" src="{% static 'images/slideshow/Taipei101.jpg' %}" />
-        </figure>
-        <figure>
-          <span class="prev"> « </span>
-          <span class="next"> » </span>
-        </figure>
-      </div> <!-- slideshow -->
     </div> <!-- header div -->
+    <div id="main-content" data-spy="scroll" data-target=".navbar" style="height:1000px;">
+      <div id="carousel-ss" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-ss" data-slide-to="0" class="active"></li>
+          {% for img_i in img_indexes %}
+            <li data-target="#carousel-ss" data-slide-to="{{ img_i }}"></li>
+          {% endfor %}
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          {% for path in img_paths %}
+          {% if forloop.first %}
+          <div class="item active">
+          {% else %}
+          <div class="item">
+          {% endif %}
+            <img src="{% static path %}" alt="Slideshow Images">
+          </div>
+          {% endfor %}
+        </div>
+
+        <a class="left carousel-control" href="#carousel-ss" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-ss" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div> <!-- carousel-ss -->
+      <div id="about">
+        <img src="{% static 'images/slideshow/Taipei101.jpg' %}" alt="Slideshow Images">
+      </div>
+
+      <div id="people">
+        <img src="{% static 'images/slideshow/wallpaper-10488.jpg' %}" alt="Slideshow Images">
+      </div>
+
+      <div id="map">
+        <img src="{% static 'images/slideshow/wallpaper-10488.jpg' %}" alt="Slideshow Images">
+      </div>
+    </div> <!-- content div -->
   </div> <!-- wrapper div -->
+  <!-- Bootstrap scripts -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+  <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+  <script src="{% static "js/bootstrap.js" %}"></script>
+  <script src="{% static "js/raphael-min.js" %}"></script>
+  <script src="{% static "js/glide.js" %}"></script>
+  <script src="{% static "js/taiwan-mapjs" %}"></script>
 </body>

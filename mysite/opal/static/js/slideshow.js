@@ -1,22 +1,39 @@
-var counter=0,
-$item = $( '.main-slideshow figure' ),
-numItems = $item.length;
+$(document).ready(function(){
+  var counter=0,
+  $items = $( '.main-slideshow figure' ),
+  numItems = $items.length;
 
-var showCurrent = function(){
+  var showCurrent = function(){
 
-  var itemToShow = Math.abs(counter%numItems);
-  $item.removeClass('show');
-  $item.eq(itemToShow).addClass('show');
+    var itemToShow = Math.abs(counter%numItems);
+    $items.removeClass('show');
+    $items.eq(itemToShow).addClass('show');
 
-};
+  };
 
+  $('.next').on('click', function(){
+    counter ++;
+    showCurrent();
+  });
 
-$('.next').on('click', function(){
-  counter ++;
-  showCurrent();
-}
+  $('.prev').on('click', function(){
+    counter --;
+    showCurrent();
+  });
+});
+  /* For touch devices*/
+  /***
+  if('ontouchstart' in window) {
+    $('.main-slideshow').swipe({
+      swipeLeft:function(){
+        counter ++;
+        showCurrent();
+      },
+      swipeRight:function(){
+        counter --;
+        showCurrent(); 
+      }
+    });
+  }
+  ***/
 
-$('.prev').on('click', function(){
-  counter --;
-  showCurrent();
-}
